@@ -9,11 +9,17 @@ const Home = () => {
     setTimeout(() => {
       fetch('http://localhost:3000/blogs')
       .then(res => {
+        if(!res.ok){
+          throw Error('could not fetch the data for that resource')
+        }
         return res.json();
       })
       .then(data => {
         setIsPending(false);
         setBlogs(data);
+      })
+      .catch(err => {
+        console.log(err.message);
       })
     }, 1000);
   }, [])

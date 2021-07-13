@@ -7,7 +7,7 @@ const Home = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch('http://localhost:8000/blogs')
+      fetch('http://localhost:3000/blogs')
       .then(res => {
         return res.json();
       })

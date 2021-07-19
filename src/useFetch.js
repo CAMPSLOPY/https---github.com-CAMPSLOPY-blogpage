@@ -24,7 +24,10 @@ const useFetch = (url) => {
             setError(err.message);
           })
         }, 1000);
+
+        return () => AbortController.abort();
       }, [url]);
+      
       return {data , isPending , error}
 
 }
